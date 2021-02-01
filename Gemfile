@@ -66,3 +66,5 @@ gem 'pry-byebug'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.2.1'
 gem 'paranoia', '~> 2.2'
+
+gem 'dotenv-rails'
