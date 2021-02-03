@@ -6,9 +6,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_id)
+    @category = Category.new(category_params)
     if @category.save
-       redirect_to category_path(@category_id), notice: "ジャンルを追加しました"
+       redirect_to categories_path(@category), notice: "ジャンルを追加しました"
     else
       @categories = Category.all
       render :index
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   def update
   	@category = Category.find(params[:id])
   	if @category.update(category_params)
-  	   redirect_to category_path(@category_id), notice: "ジャンルを変更しました"
+  	   redirect_to categories_path(@category.id), notice: "ジャンルを変更しました"
   	else
   	  render :edit
   	end
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
   def destroy
   	@category = Category.find(params[:id])
   	@category.destroy
-  	redirect_to admins_categories_path, notice: "削除しました"
+  	redirect_to categories_path, notice: "削除しました"
   end
 
   private

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'books/show'
   get 'books/edit'
 
-	resources :categories, only: [:index, :edit, :update, :destroy]
+	resources :categories, only: [:index, :create, :edit, :update, :destroy]
 
 end
