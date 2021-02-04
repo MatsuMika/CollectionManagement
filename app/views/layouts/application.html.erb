@@ -10,8 +10,30 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <h1>図書管理</h1>
+    <header>
+      <div id="sp-menu">
+        <h2>図書管理</h2>
+        <ul>
+          <li><a href="#">MENU1</a></li>
+          <li><a href="#">MENU2</a></li>
+          <li><a href="#">MENU3</a></li>
+          <li><a href="#">MENU4</a></li>
+          <li><a href="#">MENU5</a></li>
+        </ul>
+      </div>
+
+      <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    </header>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
   </body>
+
 </html>
