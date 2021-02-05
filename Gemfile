@@ -68,5 +68,7 @@ gem 'bootstrap', '~> 4.2.1'
 gem 'paranoia', '~> 2.2'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 
 gem 'dotenv-rails'

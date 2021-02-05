@@ -23,6 +23,12 @@ class CategoriesController < ApplicationController
   	@category = Category.find(params[:id])
   	if @category.update(category_params)
   	   redirect_to categories_path(@category.id), notice: "ジャンルを変更しました"
+		  if @category.is_active == false
+ 	  		@category.books.each do |product|
+ 	  			book.is_active =false
+ 	  			book.save
+ 	  		end
+  	  end
   	else
   	  render :edit
   	end

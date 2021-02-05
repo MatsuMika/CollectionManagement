@@ -1,2 +1,82 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<div class= "container-fluid">
+
+  <div class= "row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <h3>新規書籍登録</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <%= form_with model:@book, url:books_path(@book), method: :patch, local: true do |f| %>
+
+        <div class="row">
+          <div class="col-md-3 text-left">
+            <span>画像</span>
+          </div>
+          <div class="col-md-8 text-left">
+            <%= f.attachment_field :image %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>タイトル</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :title, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>著者名</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :author_name, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>出版社</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :publisher, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>ジャンル</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.collection_select :category_id, Category.all, :id, :category_name, {prompt: "選択してください"},{ class: "form-control"} %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 text-left">
+            <span>書籍管理番号</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :book_num, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>メモ</span>
+          </div>
+          <div class="col-md-8">
+              <%= f.text_area :memo, class:"form-control" %>
+            </div>
+        </div>
+
+        <%= f.submit class: "button" %>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
