@@ -1,0 +1,12 @@
+<div class= "container-fluid">
+  <div class="top-login">
+    <h2>管理者専用 図書管理システム</h2>
+    <div class="top-login-btn">
+      <% if admin_signed_in? %>
+        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "button-delete"%>
+      <% else %>
+        <%= link_to 'ログイン', new_admin_session_path, class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>

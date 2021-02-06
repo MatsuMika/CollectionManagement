@@ -10,30 +10,63 @@
   </head>
 
   <body>
-    <h1>図書管理</h1>
-    <header>
-      <div id="sp-menu">
-        <h2>図書管理</h2>
-        <ul>
-          <li><a href="#">MENU1</a></li>
-          <li><a href="#">MENU2</a></li>
-          <li><a href="#">MENU3</a></li>
-          <li><a href="#">MENU4</a></li>
-          <li><a href="#">MENU5</a></li>
-        </ul>
-      </div>
+    <div class="wrapper">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+          <%= link_to "図書管理", root_path, class: "navbar-brand  mb-0 h1 brand" %>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <% if admin_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to '', books_path, class: "nav-link fas fa-book fa-lg" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '書籍新規登録', new_book_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete , class: "nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to 'ログインしてください', new_admin_session_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
 
-      <div id="hm-icon">
-        <a class="menu-trigger" href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
-    </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+          <div id="sp-menu">
+            <ul>
+              <% if admin_signed_in? %>
+                <li><%= link_to '書籍新規登録', new_book_path %>
+                </li>
+                <li><%= link_to '蔵書一覧', books_path %>
+                </li>
+                <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li><%= link_to 'ログインしてください', new_admin_session_path %>
+                </li>
+                <li><%= link_to '新規管理者登録はこちら', new_admin_registration_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <div id="hm-icon">
+            <a class="menu-trigger" href="#">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+        </nav>
+      </header>
+        <div class= "row flash">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <%= yield %>
+    </div>
   </body>
 
 </html>

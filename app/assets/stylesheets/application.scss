@@ -24,20 +24,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-h1{
-  text-align: center;
-  margin: 50px 0;
+.navbar-custom {
+	background-color: #e3f2fd;
+	height: 70px;
 }
-.box{
-  height: 300px;
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto 50px;
-  background-color: #eee;
-}
-/* ---------------------------- */
-/* --- ハンバーガーアイコン --- */
-/* ---------------------------- */
+
+/* --- ハンバーガーアイコン => --- */
+
 #hm-icon{
   position: fixed;
   right: 20px;
@@ -52,8 +45,8 @@ h1{
 }
 .menu-trigger {
   position: relative;
-  width: 50px;
-  height: 44px;
+  width: 40px;
+  height: 34px;
 }
 .menu-trigger span {
   position: absolute;
@@ -67,37 +60,39 @@ h1{
   top: 0;
 }
 .menu-trigger span:nth-of-type(2) {
-  top: 20px;
+  top: 15px;
 }
 .menu-trigger span:nth-of-type(3) {
   bottom: 0;
 }
 .menu-trigger.active span:nth-of-type(1) {
-  -webkit-transform: translateY(20px) rotate(-45deg);
-  transform: translateY(20px) rotate(-45deg);
+ transform: translateY(15px) rotate(-315deg);
   background-color: #fff;
 }
 .menu-trigger.active span:nth-of-type(2) {
   opacity: 0;
 }
 .menu-trigger.active span:nth-of-type(3) {
-  -webkit-transform: translateY(-20px) rotate(45deg);
-  transform: translateY(-20px) rotate(45deg);
+	transform: translateY(-15px) rotate(315deg);
   background-color: #fff;
 }
-/* ------------------------ */
-/* ------ spメニュー ------ */
-/* ------------------------ */
+/* --- ハンバーガーアイコン =< --- */
+
+/* ------ spメニュー => ------ */
+
 #sp-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  background: #000;
+  right: 0;
+  background: rgba(0,0,0,0.5);
   color: #fff;
-  width: 100%;
+  width: 20%;
   min-height: 100%;
   display: none;
   z-index: 9;
+}
+#sp-menu ul {
+	margin-top: 70px;
 }
 #sp-menu li {
   text-align: center;
@@ -107,6 +102,61 @@ h1{
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+}
+/* ------ spメニュー =< ------ */
+
+.flash {
+	margin-top: 60px;
+}
+
+.notice {
+	color: blue;
+}
+.alert {
+	color: blue;
+}
+
+.container-fluid {
+	margin: 10px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  font-size: 35px;
+}
+
+.top-login {
+	margin-top: 15%;
+	text-align: center;
+}
+
+.top-login-btn {
+	margin-top: 50px;
+}
+
+.button-delete {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 7px 20px;
+  border-radius: 25px;
+  border-style: none;
+  color: #fff;
+  background-image: linear-gradient(45deg, #F13F79 0%, #FFC778 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #EA6264;
+}
+
+.button-delete:hover {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
 }
 
 .button {
