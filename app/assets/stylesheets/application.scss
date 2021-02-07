@@ -24,8 +24,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .navbar-custom {
-	background-color: #e3f2fd;
+	background-color: #00e5ff;
 	height: 70px;
 }
 
@@ -125,6 +126,7 @@
   position: relative;
   padding-bottom: 80px;
   box-sizing: border-box;
+  background-color: #e9f1f7;
 }
 
 .navbar-brand {
@@ -176,4 +178,11 @@
   transform: translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
+}
+
+.right-content,
+.left-content {
+	margin: 5px;
+	padding: 5px;
+	background-color: #fff;
 }

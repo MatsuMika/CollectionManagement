@@ -1,49 +1,51 @@
 <div class= "container-fluid">
-
   <div class= "row">
-    <div class="col-md-4 offset-md-4 text-center">
-      <h3>ジャンル一覧・追加</h3>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
-       <%= render "categories/form", category: @category %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <table class="table table-hover table-borderless col-12 ">
-        <thead>
-          <tr>
-            <th>ジャンル</th>
-            <th>状態</th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @categories.each do |category| %>
-            <tr>
-              <td class="text-left">
-                <%= category.category_name %>
-              </td>
-              <% if category.is_active == true %>
-                <td>有効</td>
-              <% else category.is_active == false %>
-                <td>無効</td>
+    <div class="col-md-7 left-content">
+      <div class="row">
+        <div class="col-md">
+          <h3>ジャンル一覧</h3>
+          <table class="table table-hover table-borderless col-md ">
+            <thead>
+              <tr>
+                <th>ジャンル</th>
+                <th>状態</th>
+                <th colspan="2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @categories.each do |category| %>
+                <tr>
+                  <td class="text-left">
+                    <%= category.category_name %>
+                  </td>
+                  <% if category.is_active == true %>
+                    <td>有効</td>
+                  <% else category.is_active == false %>
+                    <td>無効</td>
+                  <% end %>
+                  <td>
+                    <%= link_to "編集", edit_category_path(category), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
+                  </td>
+                  <td>
+                    <%= link_to "削除", category_path(category), method: :delete, class: "glyphicon glyphicon-pencil btn-sm btn-danger" %>
+                  </td>
+                </tr>
               <% end %>
-              <td>
-                <%= link_to "編集", edit_category_path(category), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
-              </td>
-              <td>
-                <%= link_to "削除", category_path(category), method: :delete, class: "glyphicon glyphicon-pencil btn-sm btn-danger" %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <div class="col-md-3 right-content">
+      <div class= "row">
+        <div class="col-md">
+          <h3>ジャンル追加</h3>
+           <%= render "categories/form", category: @category %>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
   	if @category.update(category_params)
   	   redirect_to categories_path(@category.id), notice: "ジャンルを変更しました"
 		  if @category.is_active == false
- 	  		@category.books.each do |product|
+ 	  		@category.books.each do |book|
  	  			book.is_active =false
  	  			book.save
  	  		end

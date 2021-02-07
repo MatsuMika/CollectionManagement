@@ -21,7 +21,10 @@
                   <%= link_to '', books_path, class: "nav-link fas fa-book fa-lg" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to '書籍新規登録', new_book_path, class: "nav-link" %>
+                  <%= link_to '書籍新規追加', new_book_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'ジャンル一覧', categories_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete , class: "nav-link" %>
@@ -37,9 +40,11 @@
           <div id="sp-menu">
             <ul>
               <% if admin_signed_in? %>
-                <li><%= link_to '書籍新規登録', new_book_path %>
+                <li><%= link_to '書籍新規追加', new_book_path %>
                 </li>
                 <li><%= link_to '蔵書一覧', books_path %>
+                </li>
+                <li><%= link_to 'ジャンル一覧', categories_path %>
                 </li>
                 <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
                 </li>
@@ -61,11 +66,13 @@
           </div>
         </nav>
       </header>
+      <main>
         <div class= "row flash">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
         </div>
         <%= yield %>
+      </main>
     </div>
   </body>
 
