@@ -1,8 +1,12 @@
 <%= form_with model:category, local: true do |f| %>
-  <%= f.text_field :category_name, autofocus: true, placeholder:"新規ジャンル名" %>
-  <%= f.radio_button :is_active, true %>
-  <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
-  <%= f.radio_button :is_active, false %>
-  <%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
-  <%= f.submit "OK", class: "button" %>
+    <div class="col-md">
+      <%= f.text_field :category_name, autofocus: true, placeholder:"新規ジャンル名" %>
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+      <%= f.radio_button :is_active, false %>
+      <%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
+    </div>
+    <div class="col-md text-right">
+      <%= f.submit "OK", class: "button" %>
+    </div>
 <% end %>
