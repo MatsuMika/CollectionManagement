@@ -1,2 +1,64 @@
-<h1>Borrowers#new</h1>
-<p>Find me in app/views/borrowers/new.html.erb</p>
+<div class= "container-fluid">
+
+  <div class= "row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <h3>新規会員登録</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <%= form_with model:@borrower, url:borrowers_path(@borrower), method: :patch, local: true do |f| %>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>名前</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :name, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>ナマエ</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :name_kana, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>住所</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :address, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 text-left">
+            <span>電話番号</span>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :phone class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 text-left">
+            <span>備考</span>
+          </div>
+          <div class="col-md-8">
+              <%= f.text_area :remarks, class:"form-control" %>
+            </div>
+        </div>
+
+        <%= f.submit class: "button" %>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
