@@ -5,7 +5,9 @@ class BorrowersController < ApplicationController
 
   def index
     @borrowers = Borrowers.all
+    @borrower = Borrower.find(params[id])
   end
+
 
   def create
     @borrower = Borrower.new(category_params)
@@ -15,6 +17,10 @@ class BorrowersController < ApplicationController
       render :new
     end
   end
+
+  def show
+		@borrower = Borrower.find(params[:id])
+	end
 
   def edit
   	@borrower = Borrower.find(params[:id])

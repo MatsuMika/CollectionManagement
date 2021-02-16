@@ -1,2 +1,53 @@
-<h1>Borrowers#index</h1>
-<p>Find me in app/views/borrowers/index.html.erb</p>
+<div class= "container-fluid">
+  <div class= "row">
+
+    <div class="col-md-8 offset-md-1 left-content">
+      <div class="row">
+        <div class="col-md">
+          <h3>会員情報一覧</h3>
+          <table class="table table-hover table-borderless col-md ">
+            <thead>
+              <tr>
+                <th>名前</th>
+                <th>ナマエ</th>
+                <th>備考</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @borowers.each do |borrower| %>
+                <tr>
+                  <td class="text-left">
+                    <%= borrower.name %>
+                  </td>
+                  <td><%= borrower.name_kana %>
+                  </td>
+                  <td><%= borrower.remarks %>
+                  </td>
+                  <td>
+                    <%= link_to "詳細", borrowers_path(borrower), class: "glyphicon glyphicon-pencil btn-sm btn-info" %>
+                  </td>
+                  <td>
+                    <%= link_to "編集", edit_borrower_path(borrower), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
+                  </td>
+                  <td>
+                    <%= link_to "削除", borrower_path(borrower), method: :delete, class: "glyphicon glyphicon-pencil btn-sm btn-danger" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 right-content">
+      <div class= "row">
+        <div class="col-md">
+          <%= link_to "新規会員会員登録", new_borrower_path(borrower), class: "button" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
