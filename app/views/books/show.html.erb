@@ -1,2 +1,28 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+ <div class= "container-fluid">
+  <div class= "row">
+
+    <div class="col-md-8 offset-md-1 left-content">
+      <div class="row">
+        <div class="col-md">
+          <h3>蔵書詳細</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <%= attachment_image_tag @book, :image, :fill, 100, 100, format: "jpg", fallback: "no-image.jpg" %>
+        </div>
+        <div class="col-md-9 offset-md-5">
+          <%= @book.book_num %>
+          <br><%= @book.author_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <p>@book.publisher</p>
+          <p>@book.memo</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
